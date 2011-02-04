@@ -16,7 +16,7 @@ signals:
 
 public slots:
     void setupdbConnections();
-    void insertImageToDB(QFile imageFile);
+    bool insertImageToDB(QByteArray bytes);
 
 public:
     explicit dbconnect(QWidget *parent = 0);

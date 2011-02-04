@@ -12,22 +12,14 @@ dbconnect::dbconnect(QWidget *parent):QDialog(parent),ui(new Ui::dbconnect){
 
 dbconnect::~dbconnect(){delete ui;}
 
-void dbconnect::insertImageToDB(QFile imageFile){
+bool dbconnect::insertImageToDB(QByteArray queryBytes){
 
+    QSqlQuery query;
+    query.prepare("INSERT INTO images(img) VALUES (:img)");
+    query.bindValue(":img", QVariant(queryBytes));
+    bool ok = query.exec();
 
-    QMessageBox::warning(this, tr("Open Image .."), "Invalid Image Format!");
-    //QString sql = QString("CREATE TABLE images (image BLOB)");
-    QSqlQuery q(db);
-    bool ok;
-
-    imageFile.open(QIODevice::ReadOnly);
-    QByteArray bytes = imageFile.readAll();
-
-    q.prepare("INSERT INTO images (img) VALUES(:img)");
-    q.bindValue(":img", QVariant(bytes));
-    ok = q.exec();
-
-    if (ok) QMessageBox(this);
+    return ok;
 
 }
 

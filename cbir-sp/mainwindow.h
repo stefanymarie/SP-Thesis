@@ -12,6 +12,9 @@ class mainWindow : public QMainWindow {
 
     dbconnect *dbConnect;
 
+signals:
+    void imageFileOpened(QByteArray file);
+
 private slots:
     void setupConnections();
     void dbOk();
@@ -26,8 +29,9 @@ public slots:
 public:
     explicit mainWindow(QWidget *parent = 0);
     ~mainWindow();
-    QFile queryImage;
     bool dbSetupOk;
+    QByteArray queryFileBytes;
+    void connectToClass(QByteArray);
 
 private:
     Ui::mainWindow *ui;
@@ -35,3 +39,5 @@ private:
 };
 
 #endif // MAINWINDOW_H
+
+

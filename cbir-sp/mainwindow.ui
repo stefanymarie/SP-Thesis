@@ -62,7 +62,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QLabel" name="imageQuery">
+   <widget class="QLabel" name="boxImageQuery">
     <property name="geometry">
      <rect>
       <x>30</x>

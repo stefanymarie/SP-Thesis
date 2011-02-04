@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'dbconnect.h'
 **
-** Created: Wed Feb 2 12:35:53 2011
+** Created: Sat Feb 5 01:57:33 2011
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -35,14 +35,14 @@ static const uint qt_meta_data_dbconnect[] = {
 
  // slots: signature, parameters, type, tag, flags
       23,   10,   10,   10, 0x0a,
-      55,   44,   10,   10, 0x0a,
+      55,   49,   44,   10, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_dbconnect[] = {
     "dbconnect\0\0connected()\0setupdbConnections()\0"
-    "queryImage\0insertImageToDB(QFile&)\0"
+    "bool\0bytes\0insertImageToDB(QByteArray)\0"
 };
 
 const QMetaObject dbconnect::staticMetaObject = {
@@ -76,7 +76,8 @@ int dbconnect::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         switch (_id) {
         case 0: connected(); break;
         case 1: setupdbConnections(); break;
-        case 2: insertImageToDB((*reinterpret_cast< QFile(*)>(_a[1]))); break;
+        case 2: { bool _r = insertImageToDB((*reinterpret_cast< QByteArray(*)>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
         default: ;
         }
         _id -= 3;

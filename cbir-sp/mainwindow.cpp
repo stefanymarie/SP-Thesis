@@ -29,31 +29,42 @@ void mainWindow::connectDB(){
     dbForm->setVisible(true);
 
     printf ("connectDB() here");
+
     //set db connection status connected if database set is open
     connect(dbForm, SIGNAL(connected()), this, SLOT(dbOk()));
+    return;
 }
 
 void mainWindow::dbOk(){
     dbSetupOk = true;
     printf("dbOk() ");
+    return;
 }
 
 void mainWindow::addToDB(){
 
     if (!dbSetupOk) connectDB();
     else {
-        printf("reached addToDB()");
-        QString imageFileName = queryImage.fileName();
-        QFile imageFile;
-        imageFile.setFileName(imageFileName);
-        dbConnect->insertImageToDB(imageFile);
+        printf("addToDB");
+        connectToClass(queryFileBytes);
     }
 
+}
+
+void mainWindow::connectToClass(QByteArray bytes){
+
+    printf("connectToClass()");
+    bool ok = dbConnect->insertImageToDB(bytes);
+    if (ok) QMessageBox::warning(this, tr("Open Image .."), "Image added, check it out!");
 }
 
 void mainWindow::openImage(){
 
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), QDir::currentPath(), tr("Image File ( *.png *.bmp *.jpeg *.jpg)"));
+
+    QFile queryFile(fileName);
+    queryFile.open(QIODevice::ReadOnly);
+    queryFileBytes = queryFile.readAll();
 
     if (!fileName.isEmpty()) {
         QImage query(fileName);
@@ -62,11 +73,12 @@ void mainWindow::openImage(){
             return;
         }
 
-        ui->imageQuery->setPixmap(QPixmap::fromImage(query));
-        queryImage.setFileName(fileName);
+        query = query.scaled(ui->boxImageQuery->size(),Qt::KeepAspectRatio,Qt::SmoothTransformation);
+        ui->boxImageQuery->setPixmap(QPixmap::fromImage(query));
         connect(ui->buttonAddToDB, SIGNAL(clicked()), this, SLOT(addToDB()));
     }
 }
+
 
 void mainWindow::showAbout(){
 

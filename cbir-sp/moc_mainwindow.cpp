@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Thu Feb 3 00:03:38 2011
+** Created: Sat Feb 5 02:04:12 2011
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,28 +23,31 @@ static const uint qt_meta_data_mainWindow[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: signature, parameters, type, tag, flags
+      17,   12,   11,   11, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      12,   11,   11,   11, 0x08,
-      31,   11,   11,   11, 0x08,
-      38,   11,   11,   11, 0x0a,
-      50,   11,   11,   11, 0x0a,
-      62,   11,   11,   11, 0x0a,
-      72,   11,   11,   11, 0x0a,
+      45,   11,   11,   11, 0x08,
+      64,   11,   11,   11, 0x08,
+      71,   11,   11,   11, 0x0a,
+      83,   11,   11,   11, 0x0a,
+      95,   11,   11,   11, 0x0a,
+     105,   11,   11,   11, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_mainWindow[] = {
-    "mainWindow\0\0setupConnections()\0dbOk()\0"
-    "openImage()\0connectDB()\0addToDB()\0"
-    "showAbout()\0"
+    "mainWindow\0\0file\0imageFileOpened(QByteArray)\0"
+    "setupConnections()\0dbOk()\0openImage()\0"
+    "connectDB()\0addToDB()\0showAbout()\0"
 };
 
 const QMetaObject mainWindow::staticMetaObject = {
@@ -76,16 +79,24 @@ int mainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: setupConnections(); break;
-        case 1: dbOk(); break;
-        case 2: openImage(); break;
-        case 3: connectDB(); break;
-        case 4: addToDB(); break;
-        case 5: showAbout(); break;
+        case 0: imageFileOpened((*reinterpret_cast< QByteArray(*)>(_a[1]))); break;
+        case 1: setupConnections(); break;
+        case 2: dbOk(); break;
+        case 3: openImage(); break;
+        case 4: connectDB(); break;
+        case 5: addToDB(); break;
+        case 6: showAbout(); break;
         default: ;
         }
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
+}
+
+// SIGNAL 0
+void mainWindow::imageFileOpened(QByteArray _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_END_MOC_NAMESPACE

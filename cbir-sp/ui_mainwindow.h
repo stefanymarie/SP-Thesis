@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Wed Feb 2 12:03:25 2011
+** Created: Sat Feb 5 00:12:21 2011
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -41,7 +41,7 @@ public:
     QFrame *line;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
-    QLabel *imageQuery;
+    QLabel *boxImageQuery;
     QPushButton *buttonAnalyze;
     QLabel *imageQuery_2;
     QGroupBox *groupBox;
@@ -86,12 +86,12 @@ public:
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
         scrollAreaWidgetContents->setGeometry(QRect(0, 0, 489, 239));
         scrollArea->setWidget(scrollAreaWidgetContents);
-        imageQuery = new QLabel(centralWidget);
-        imageQuery->setObjectName(QString::fromUtf8("imageQuery"));
-        imageQuery->setGeometry(QRect(30, 40, 200, 150));
-        imageQuery->setMaximumSize(QSize(200, 150));
-        imageQuery->setFrameShape(QFrame::StyledPanel);
-        imageQuery->setLineWidth(2);
+        boxImageQuery = new QLabel(centralWidget);
+        boxImageQuery->setObjectName(QString::fromUtf8("boxImageQuery"));
+        boxImageQuery->setGeometry(QRect(30, 40, 200, 150));
+        boxImageQuery->setMaximumSize(QSize(200, 150));
+        boxImageQuery->setFrameShape(QFrame::StyledPanel);
+        boxImageQuery->setLineWidth(2);
         buttonAnalyze = new QPushButton(centralWidget);
         buttonAnalyze->setObjectName(QString::fromUtf8("buttonAnalyze"));
         buttonAnalyze->setGeometry(QRect(50, 250, 161, 31));
@@ -149,7 +149,7 @@ public:
         actionContents->setText(QApplication::translate("mainWindow", "Contents", 0, QApplication::UnicodeUTF8));
         actionContents->setShortcut(QApplication::translate("mainWindow", "F1", 0, QApplication::UnicodeUTF8));
         actionDBconnect->setText(QApplication::translate("mainWindow", "Connect to Database", 0, QApplication::UnicodeUTF8));
-        imageQuery->setText(QString());
+        boxImageQuery->setText(QString());
         buttonAnalyze->setText(QApplication::translate("mainWindow", "Analyze", 0, QApplication::UnicodeUTF8));
         imageQuery_2->setText(QString());
         groupBox->setTitle(QApplication::translate("mainWindow", "Details", 0, QApplication::UnicodeUTF8));
