@@ -1,18 +1,26 @@
-#include "mainwindow.h"
+#include "edgeDetection.h"
 
-IplImage* mainWindow::QImage2IplImage(QImage *qimg){
+#include <QDebug>
+#include <QImage>
 
-	IplImage *imgHeader = cvCreateImageHeader( cvSize(qimg->width(), qimg->width()), IPL_DEPTH_8U, 4);
+IplImage* edgeDetection::QImage2IplImage(QImage *qimg){
+
+	IplImage *imgHeader = cvCreateImageHeader(cvSize
+															(qimg->width(),
+															 qimg->width()),
+															 IPL_DEPTH_8U,
+															 4);
+
 	imgHeader->imageData = (char*) qimg->bits();
 
-	uchar* newdata = (uchar*) malloc(sizeof(uchar) * qimg->byteCount());
+	uchar* newdata = (uchar*)malloc(sizeof(uchar)*qimg->byteCount());
 	memcpy(newdata, qimg->bits(), qimg->byteCount());
 	imgHeader->imageData = (char*) newdata;
 	//cvClo
 	return imgHeader;
 }
 
-QImage*  mainWindow::IplImage2QImage(IplImage *iplImg){
+QImage*  edgeDetection::IplImage2QImage(IplImage *iplImg){
 
 	int h = iplImg->height;
 	int w = iplImg->width;
